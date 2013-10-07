@@ -1,2 +1,2 @@
-phonegap-rmc
+phonegap-rmc 1.0
 ============
