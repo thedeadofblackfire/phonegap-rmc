@@ -81,22 +81,25 @@ function uploadPhoto(imageURI) {
     largeImage.src = imageURI;
 
     var options = new FileUploadOptions();
-    options.fileKey = "recFile";
+    options.fileKey = "file";
     var userid = '123456';
+
     var imagefilename = userid + Number(new Date()) + ".jpg";
-    options.fileName = imageURI;
+    //options.fileName = imageURI;
 	//options.fileName = imagefilename;
+	options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
     options.mimeType = "image/jpeg"; //"image/jpg";
 
     var params = new Object();
     params.imageURI = imageURI;
     //params.userid = sessionStorage.loginuserid;
     options.params = params;
-    options.chunkedMode = true;
+    options.chunkedMode = false; //true;
     
     var ft = new FileTransfer();
     var url = encodeURI("http://rmcapp.eoi.com/upload.php");
-    ft.upload(imageURI, url, win, fail, options, true);
+    ft.upload(imageURI, url, win, fail, options);
+	//ft.upload(imageURI, url, win, fail, options, true);
 }
 //Success callback
 function win(r) {
