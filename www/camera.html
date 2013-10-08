@@ -80,7 +80,7 @@ function uploadPhoto(imageURI) {
     options.chunkedMode = false;
     
     var ft = new FileTransfer();
-    var url = encodeURI("Your_Web_Service_URL");
+    var url = encodeURI("http://rmcapp.eoi.com/upload.php");
     ft.upload(imageURI, url, win, fail, options, true);
 }
 //Success callback
