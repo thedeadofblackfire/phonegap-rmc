@@ -91,7 +91,7 @@ function uploadPhoto(imageURI) {
     params.imageURI = imageURI;
     //params.userid = sessionStorage.loginuserid;
     options.params = params;
-    options.chunkedMode = false;
+    //options.chunkedMode = false;
     
     var ft = new FileTransfer();
     var url = encodeURI("http://rmcapp.eoi.com/upload.php");
@@ -101,6 +101,7 @@ function uploadPhoto(imageURI) {
 function win(r) {
     alert("Image uploaded successfully!!");
     alert("Sent = " + r.bytesSent); 
+	alert(r.response);
 }
 //Failure callback
 function fail(error) {
