@@ -92,12 +92,13 @@ function uploadPhoto(imageURI) {
 
     var params = new Object();
     params.imageURI = imageURI;
+	params.imageFileName = imagefilename;
     //params.userid = sessionStorage.loginuserid;
     options.params = params;
     options.chunkedMode = false; //true;
     
     var ft = new FileTransfer();
-    var url = encodeURI("http://rmcapp.eoi.com/upload.php");
+    var url = encodeURI("http://rmcapp.eoi.com/upload.php?nomimage="+imagefilename);
     ft.upload(imageURI, url, win, fail, options);
 	//ft.upload(imageURI, url, win, fail, options, true);
 }
