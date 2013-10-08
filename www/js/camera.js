@@ -89,7 +89,7 @@ function uploadPhoto(imageURI) {
 
     var params = new Object();
     params.imageURI = imageURI;
-    params.userid = sessionStorage.loginuserid;
+    //params.userid = sessionStorage.loginuserid;
     options.params = params;
     options.chunkedMode = false;
     
