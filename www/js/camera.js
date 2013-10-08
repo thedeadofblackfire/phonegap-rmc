@@ -92,14 +92,15 @@ function uploadPhoto(imageURI) {
     params.imageURI = imageURI;
     //params.userid = sessionStorage.loginuserid;
     options.params = params;
-    options.chunkedMode = false;
+    options.chunkedMode = true;
     
     var ft = new FileTransfer();
     var url = encodeURI("http://rmcapp.eoi.com/upload.php");
-    ft.upload(imageURI, "http://rmcapp.eoi.com/upload.php", win, fail, options, true);
+    ft.upload(imageURI, url, win, fail, options, true);
 }
 //Success callback
 function win(r) {
+    navigator.notification.beep(2);
     alert("Image uploaded successfully!!");
     alert("Sent = " + r.bytesSent); 
 	alert(r.response);
