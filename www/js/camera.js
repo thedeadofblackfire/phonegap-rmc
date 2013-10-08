@@ -81,21 +81,22 @@ function uploadPhoto(imageURI) {
     largeImage.src = imageURI;
 
     var options = new FileUploadOptions();
-    options.fileKey = "file";
+    options.fileKey = "recFile";
     var userid = '123456';
     var imagefilename = userid + Number(new Date()) + ".jpg";
-    options.fileName = imagefilename;
+    options.fileName = imageURI;
+	//options.fileName = imagefilename;
     options.mimeType = "image/jpeg"; //"image/jpg";
 
     var params = new Object();
     params.imageURI = imageURI;
     //params.userid = sessionStorage.loginuserid;
     options.params = params;
-    //options.chunkedMode = false;
+    options.chunkedMode = false;
     
     var ft = new FileTransfer();
     var url = encodeURI("http://rmcapp.eoi.com/upload.php");
-    ft.upload(imageURI, url, win, fail, options, true);
+    ft.upload(imageURI, "http://rmcapp.eoi.com/upload.php", win, fail, options, true);
 }
 //Success callback
 function win(r) {
@@ -126,5 +127,7 @@ function fail(error) {
 // 
 function onFail(message) {
     alert('Failed because: ' + message);
+	var msg ='Impossible de lancer l\'appareil photo';
+        navigator.notification.alert(msg, null, '');
        
 }

@@ -27,12 +27,14 @@
     </head>
     <body>
         <div class="app">
-            <h1>PhoneGap</h1>
+            <h1>Camera</h1>
+			<form  action="#" id="form1" method="POST">
             <input name="button" type="button" onclick="capturePhoto()" value="Take Photo"/>
 
             <input name="button" type="button" onclick="getPhoto();" value="Browse" />
 			<!--<img id="myImage" src="" width="100%" style="display:none" />-->
 			<img src="" id="largeImage" alt="" style="display:none;" width="250"/>
+			</form>
         </div>
         <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
         <script type="text/javascript" charset="utf-8" src="js/camera.js"></script>
