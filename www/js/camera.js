@@ -103,11 +103,13 @@ function uploadPhoto(imageURI) {
 	//ft.upload(imageURI, url, win, fail, options, true);
 }
 //Success callback
-function win(r) {
-    navigator.notification.beep(2);
-    alert("Image uploaded successfully!!");
-    alert("Sent = " + r.bytesSent); 
-	alert(r.response);
+function win(r) {    
+    navigator.notification.beep(1);
+    alert("Image uploaded successfully!!"); 
+    //alert("Sent = " + r.bytesSent); 
+    console.log("Code = " + r.responseCode);
+    console.log("Response = " + r.response);
+    console.log("Sent = " + r.bytesSent);
 }
 //Failure callback
 function fail(error) {
@@ -126,13 +128,14 @@ function fail(error) {
       break; 
     } 
 
-    alert("An error has occurred: Code = " + error.code); 
+    console.log("An error has occurred: Code = " + error.code); 
+    console.log("upload error source " + error.source);
+    console.log("upload error target " + error.target);
 }
 // Called if something bad happens.
 // 
 function onFail(message) {
     alert('Failed because: ' + message);
-	var msg ='Impossible de lancer l\'appareil photo';
-        navigator.notification.alert(msg, null, '');
-       
+	//var msg ='Impossible de lancer l\'appareil photo';        
+    //navigator.notification.alert(msg, null, '');       
 }
