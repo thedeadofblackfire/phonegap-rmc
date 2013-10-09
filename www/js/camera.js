@@ -104,7 +104,8 @@ function uploadPhoto(imageURI) {
 }
 //Success callback
 function win(r) {    
-    navigator.notification.beep(1);
+    playBeep();
+    vibrate();
     alert("Image uploaded successfully!!"); 
     //alert("Sent = " + r.bytesSent); 
     console.log("Code = " + r.responseCode);
@@ -139,3 +140,15 @@ function onFail(message) {
 	//var msg ='Impossible de lancer l\'appareil photo';        
     //navigator.notification.alert(msg, null, '');       
 }
+
+ // Beep three times
+    //
+    function playBeep() {
+        navigator.notification.beep(1);
+    }
+
+    // Vibrate for 2 seconds
+    //
+    function vibrate() {
+        navigator.notification.vibrate(2000);
+    }
