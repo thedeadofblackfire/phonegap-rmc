@@ -24,8 +24,10 @@
     <feature name="http://api.phonegap.com/1.0/device" />
     <feature name="http://api.phonegap.com/1.0/camera"/>
     <feature name="http://api.phonegap.com/1.0/file"/>
+    <feature name="http://api.phonegap.com/1.0/geolocation"/>
     <feature name="http://api.phonegap.com/1.0/notification"/>
     <feature name="http://api.phonegap.com/1.0/storage"/>
+    <feature name="http://api.phonegap.com/1.0/network"/>
 
     <!--
         If you do not want any permissions to be added to your app, add the
