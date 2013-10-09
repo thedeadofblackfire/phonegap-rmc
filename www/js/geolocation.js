@@ -29,6 +29,15 @@
 var getCurrentPosition = function() {
 var map = document.getElementById('map');
 var success = function(pos) { 
+alert('Latitude: '          + pos.coords.latitude          + '\n' +
+          'Longitude: '         + pos.coords.longitude         + '\n' +
+          'Altitude: '          + pos.coords.altitude          + '\n' +
+          'Accuracy: '          + pos.coords.accuracy          + '\n' +
+          'Altitude Accuracy: ' + pos.coords.altitudeAccuracy  + '\n' +
+          'Heading: '           + pos.coords.heading           + '\n' +
+          'Speed: '             + pos.coords.speed             + '\n' +
+          'Timestamp: '         + pos.timestamp                + '\n');
+          
 var text = "<div>Latitude: " + pos.coords.latitude + 
 "<br/>" + "Longitude: " + pos.coords.longitude + "<br/>" + 
 "Accuracy: " + pos.coords.accuracy + "m<br/>" + "</div>";
@@ -43,6 +52,8 @@ pos.coords.latitude + "," + pos.coords.longitude +
 pos.coords.latitude + "," + pos.coords.longitude + "&sensor=false";
 };
 var fail = function(error) {
+    alert('code: '    + error.code    + '\n' +
+          'message: ' + error.message + '\n');
 document.getElementById('cur_position').innerHTML = "Error getting geolocation: " + error.code;
 console.log("Error getting geolocation: code=" + error.code + " message=" + error.message);
 };
