@@ -200,7 +200,36 @@ function validPageDamaged() {
 function validPageVin() {
 //var vehiclepic = document.getElementById('vehicleVIN');
   if(vinPic == 1 ){
-     window.location = "#page-details";
+	var formData = '';
+			$.ajax({
+                    type: "POST",
+                    url: API+"/ajax.php?m=updaterequest&id="+request_id+"&step=3",
+                    cache: false,
+                    data: formData,                    
+                    beforeSend: function() {
+                        // This callback function will trigger before data is sent
+                        $.mobile.showPageLoadingMsg(true); // This will show ajax spinner
+                    },
+                    complete: function() {
+                        // This callback function will trigger on data sent/received complete
+                        $.mobile.hidePageLoadingMsg(); // This will hide ajax spinner
+                    },
+                    success: function (result) {
+                        //    resultObject.formSubmitionResult = result;
+                        //                $.mobile.changePage("#second");
+                        console.log(result);  
+						
+						//window.location="#page4
+						if (result.success) {
+							$.mobile.changePage("#page-details");
+						}
+                    },
+                    error: function (request,error) {
+                        // This callback function will trigger on unsuccessful action                
+                        alert('Network error has occurred please try again!');
+                    }
+                });
+     //window.location = "#page-details";
   }
   else{
      navigator.notification.alert(
