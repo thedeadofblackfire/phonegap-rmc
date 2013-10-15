@@ -4,7 +4,6 @@
 .text-align-right {
   text-align: right;
 }
-.ui-page { -webkit-backface-visibility: hidden; }
 
 /** CSS for non-standard jQuery Mobile styles or Codiqa components **/
 .split-wrapper {
