@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.webcreators.repairmycar"
-        version   = "0.0.6">
+        version   = "0.0.7">
 
     <name>Newport Collision</name>
 
@@ -63,15 +63,15 @@
 
     <!-- Define app icon for each platform. -->
     <icon src="icon.png" />
-    <icon src="res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:density="ldpi" />
-    <icon src="res/icon/android/icon-48-mdpi.png"   gap:platform="android"    gap:density="mdpi" />
-    <icon src="res/icon/android/icon-72-hdpi.png"   gap:platform="android"    gap:density="hdpi" />
-    <icon src="res/icon/android/icon-96-xhdpi.png"  gap:platform="android"    gap:density="xhdpi" />
+    <icon src="res/icon/android/36.png"   gap:platform="android"    gap:density="ldpi" />
+    <icon src="res/icon/android/48.png"   gap:platform="android"    gap:density="mdpi" />
+    <icon src="res/icon/android/72.png"   gap:platform="android"    gap:density="hdpi" />
+    <icon src="res/icon/android/96.png"  gap:platform="android"    gap:density="xhdpi" />
   
-    <icon src="res/icon/ios/icon-57.png"            gap:platform="ios"        width="57" height="57" />
-    <icon src="res/icon/ios/icon-72.png"            gap:platform="ios"        width="72" height="72" />
-    <icon src="res/icon/ios/icon-57-2x.png"         gap:platform="ios"        width="114" height="114" />
-    <icon src="res/icon/ios/icon-72-2x.png"         gap:platform="ios"        width="144" height="144" />
+    <icon src="res/icon/ios/57.png"            gap:platform="ios"        width="57" height="57" />
+    <icon src="res/icon/ios/72.png"            gap:platform="ios"        width="72" height="72" />
+    <icon src="res/icon/ios/57-2x.png"         gap:platform="ios"        width="114" height="114" />
+    <icon src="res/icon/ios/72-2x.png"         gap:platform="ios"        width="144" height="144" />
  
     <!-- Define app splash screen for each platform. -->
     <gap:splash src="res/screen/android/screen-ldpi-portrait.png"  gap:platform="android" gap:density="ldpi" />

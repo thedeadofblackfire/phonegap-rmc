@@ -171,7 +171,7 @@ function validPageDamaged(){
 						
 						//window.location="#page4
 						if (result.success) {
-							$.mobile.changePage("#page5);
+							$.mobile.changePage("#page5");
 						}
                     },
                     error: function (request,error) {
