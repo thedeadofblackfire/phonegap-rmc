@@ -113,7 +113,7 @@
               </div>
 			  -->
 			  <div data-role="fieldcontain" data-controltype="textinput">
-                  <input name="request_field_firsname" id="request_field_firstname" placeholder="First Name" value="" type="text">
+                  <input name="request_field_firstname" id="request_field_firstname" placeholder="First Name" value="" type="text">
               </div>
               <div data-role="fieldcontain" data-controltype="textinput">
                   <input name="request_field_lastname" id="request_field_lastname" placeholder="Last Name" value="" type="text">
@@ -181,6 +181,31 @@
               </p>
           </div>
           <hr style="height:3px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
+		  <div style="display: inline" data-controltype="image">
+              <img style="width: 40%; height: %" src="img/takepic.png" id="damagedpart1" onclick="capturePhoto();">
+          </div>
+          <div style="display: inline" data-controltype="image">
+              <img style="width: 40%; height: %" src="img/takepic.png" id="damagedpart2" onclick="capturePhoto();">
+          </div>
+          <div style="display: inline" data-controltype="image">
+              <img style="width: 40%; height: %" src="img/takepic.png" id="damagedpart3" onclick="capturePhoto();">
+          </div>
+          <div style="display: inline" data-controltype="image">
+              <img style="width: 40%; height: %" src="img/takepic.png" id="damagedpart4" onclick="capturePhoto();">
+          </div>
+          <div style="display: inline" data-controltype="image">
+              <img style="width: 40%; height: %" src="img/takepic.png" id="damagedpart5" onclick="capturePhoto();">
+          </div>
+          <div style="display: inline" data-controltype="image">
+              <img style="width: 40%; height: %" src="img/takepic.png" id="damagedpart6" onclick="capturePhoto();">
+          </div>
+          <div style="display: inline" data-controltype="image">
+              <img style="width: 40%; height: %" src="img/takepic.png" id="damagedpart7" onclick="capturePhoto();">
+          </div>
+           <div style="display: inline" data-controltype="image">
+              <img style="width: 40%; height: %" src="img/takepic.png" id="damagedpart8" onclick="capturePhoto();">
+          </div>
+		  <!--
           <div style="display: inline" data-controltype="image">
               <img style="width: 49%; height: %" src="img/takepic.png">
           </div>
@@ -199,8 +224,9 @@
           <div style="display: inline" data-controltype="image">
               <img style="width: 49%; height: %" src="img/takepic.png">
           </div>
-          <a data-role="button" data-transition="flip" data-theme="b" href="#page5"
-          data-icon="ios-pack-color-right-arrow" data-iconpos="right" data-iconsize="26">
+		  -->
+          <a data-role="button" data-transition="flip" data-theme="b" 
+          data-icon="ios-pack-color-right-arrow" data-iconpos="right" data-iconsize="26" id="damagedbtn" onclick="validPageDamaged();">
               Next Step
           </a>
       </div>

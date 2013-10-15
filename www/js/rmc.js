@@ -6,6 +6,10 @@ var API = 'http://rmcapp.eoi.com';
 
 var request_id;
 
+var capturedPhoto = 0;
+var uploadedPhoto = 0;
+var vinPic;
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -24,7 +28,7 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        checkConnection();
+        //checkConnection();
 		populatedropdown("request_field_car_year");
         //app.receivedEvent('deviceready');
         // Do cool things here...
@@ -128,13 +132,47 @@ function validPageInfo(){
       }
  }
 
+ //function to call pagefive 
+function validPageDamaged(){
 
+    if(capturedPhoto < 2){
+        navigator.notification.alert(
+            'Take at least TWO snaps of Damaged Part',  // message
+            alertDismissed,         // callback
+            'Snap', // title
+            'Ok'                  // buttonName
+        );
+	} else if (uploadedPhoto !== capturedPhoto) {
+		navigator.notification.alert(
+            'Please Wait until your data uploads!!',  // message
+            alertDismissed,         // callback
+           'Processing', // title
+            'Ok'                  // buttonName
+        );
+	} else {
+		window.location="#page5"
+
+	}
+//else if(upload !== 0){
+//         navigator.notification.alert(
+//             'Please Wait until your data uploads!!',  // message
+//             alertDismissed,         // callback
+//            'Processing', // title
+//             'Ok'                  // buttonName
+//         );
+//       }else if(upload == 0 && takenpic == 0){
+
+      
+    //}
+
+}
+	 
 // A button will call this function
 // To capture photo
 function capturePhoto() {
     // Take picture using device camera and retrieve image as base64-encoded string
     navigator.camera.getPicture(uploadPhoto, onFail, { 
-        quality: 50, destinationType: Camera.DestinationType.FILE_URI 
+        quality: 25, destinationType: Camera.DestinationType.FILE_URI 
     });
 }
 
@@ -149,44 +187,92 @@ function getPhoto(source) {
 }
 
 function uploadPhoto(imageURI) {
+    if (!imageURI) {
+            document.getElementById('camera_status').innerHTML = "Take picture or select picture from library first.";
+            return;
+    }
+		
     //If you wish to display image on your page in app
-    // Get image handle
-    var largeImage = document.getElementById('largeImage');
-
-    // Unhide image elements
-    largeImage.style.display = 'block';
-
-    // Show the captured photo
-    // The inline CSS rules are used to resize the image
-    largeImage.src = imageURI;
-
+	displayPhoto(imageURI);	 
+    
+	// upload
     var options = new FileUploadOptions();
     options.fileKey = "file";
-    var userid = '123456';
-
-    var imagefilename = userid + Number(new Date()) + ".jpg";
+    // var userid = '123456';
+    var imagefilename = request_id + Number(new Date()) + ".jpg";
     //options.fileName = imageURI;
 	//options.fileName = imagefilename;
 	options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
-    options.mimeType = "image/jpeg"; //"image/jpg";
+    options.mimeType = "image/jpeg"; 
 
     var params = new Object();
     params.imageURI = imageURI;
 	params.imageFileName = imagefilename;
+	params.seq = capturedPhoto;
+	//params.id = request_id;
     //params.userid = sessionStorage.loginuserid;
     options.params = params;
     options.chunkedMode = false; //true;
     
     var ft = new FileTransfer();
-    var url = encodeURI(API+"/upload.php?nomimage="+imagefilename);
+    var url = encodeURI(API+"/upload.php?id="+request_id+"&nomimage="+imagefilename);
     ft.upload(imageURI, url, win, fail, options);
 	//ft.upload(imageURI, url, win, fail, options, true);
 }
+
+function displayPhoto(imageURI) {
+
+  if(capturedPhoto == 9 ){
+    capturedPhoto = 0;
+  }
+
+  capturedPhoto++;
+
+	//alert(capturedPhoto);
+
+	if(capturedPhoto == 1){
+	 var damagedpart1 = document.getElementById('damagedpart1');
+		  damagedpart1.src =  imageURI;
+	}
+	else if(capturedPhoto == 2){
+	   var damagedpart2 = document.getElementById('damagedpart2');
+		  damagedpart2.src =  imageURI;
+	}
+	else if(capturedPhoto == 3){
+	   var damagedpart3 = document.getElementById('damagedpart3');
+		  damagedpart3.src =  imageURI;  
+	}
+	else if(capturedPhoto == 4){
+	   var damagedpart4 = document.getElementById('damagedpart4');
+		  damagedpart4.src =  imageURI;  
+	}
+	else if(capturedPhoto == 5){
+	   var damagedpart5 = document.getElementById('damagedpart5');
+		  damagedpart5.src =  imageURI;  
+	}
+	else if(capturedPhoto == 6){
+	   var damagedpart6 = document.getElementById('damagedpart6');
+		  damagedpart6.src =  imageURI;
+	}
+	else if(capturedPhoto == 7){
+	   var damagedpart7 = document.getElementById('damagedpart7');
+		  damagedpart7.src =  imageURI;  
+	}
+	else if(capturedPhoto == 8){
+	   var damagedpart8 = document.getElementById('damagedpart8');
+		  damagedpart8.src =  imageURI;  
+	}
+ 
+}
+
 //Success callback
 function win(r) {    
     playBeep();
     vibrate();
     alert("Image uploaded successfully!!"); 
+	uploadedPhoto++;
+    alert(uploadedPhoto);
+				
     //alert("Sent = " + r.bytesSent); 
     console.log("Code = " + r.responseCode);
     console.log("Response = " + r.response);
@@ -231,7 +317,8 @@ function onFail(message) {
 		var formData = $("#form-confirmrequest").serialize();
 		
 		
-            alert(formData);
+            //alert(formData);
+			
               $.ajax({
                     type: "POST",
                     url: API+"/ajax.php?m=confirmrequest&id="+request_id,
