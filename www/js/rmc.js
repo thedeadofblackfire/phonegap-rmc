@@ -133,7 +133,7 @@ function validPageInfo(){
  }
 
  //function to call pagefive 
-function validPageDamaged(){
+function validPageDamaged() {
 	alert(capturedPhoto+ ' '+uploadedPhoto);
     if(capturedPhoto < 2){
         navigator.notification.alert(
@@ -150,7 +150,7 @@ function validPageDamaged(){
             'Ok'                  // buttonName
         );
 	} else {
-	
+			var formData = '';
 			$.ajax({
                     type: "POST",
                     url: API+"/ajax.php?m=updaterequest&id="+request_id+"&step=2",
