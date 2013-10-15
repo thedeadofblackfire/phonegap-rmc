@@ -4,7 +4,7 @@
 var ENV = 'production';
 var API = 'http://rmcapp.eoi.com';
 
-var request_id;
+var request_id = '';
 
 var capturedPhoto = 0;
 var uploadedPhoto = 0;
@@ -100,7 +100,7 @@ function validPageInfo(){
             //alert(formData);
               $.ajax({
                     type: "POST",
-                    url: API+"/ajax.php?m=addrequest",
+                    url: API+"/ajax.php?m=addrequest&id="+request_id,
                     cache: false,
                     data: formData,                    
                     beforeSend: function() {
@@ -134,7 +134,7 @@ function validPageInfo(){
 
  //function to call pagefive 
 function validPageDamaged(){
-
+	alert(capturedPhoto+ ' '+uploadedPhoto);
     if(capturedPhoto < 2){
         navigator.notification.alert(
             'Take at least TWO snaps of Damaged Part',  // message
@@ -151,7 +151,7 @@ function validPageDamaged(){
         );
 	} else {
 	
-		$.ajax({
+			$.ajax({
                     type: "POST",
                     url: API+"/ajax.php?m=updaterequest&id="+request_id+"&step=2",
                     cache: false,
@@ -365,8 +365,8 @@ function displayPhoto(imageURI) {
 //Success callback
 function win(r) {    
     playBeep();
-    vibrate();
-    alert("Image uploaded successfully!!"); 
+    //vibrate();
+    console.log("Image uploaded successfully!!"); 
 	uploadedPhoto++;
     //alert(uploadedPhoto);
 	
