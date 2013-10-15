@@ -150,7 +150,37 @@ function validPageDamaged(){
             'Ok'                  // buttonName
         );
 	} else {
-		window.location="#page5"
+	
+		$.ajax({
+                    type: "POST",
+                    url: API+"/ajax.php?m=updaterequest&id="+request_id+"&step=2",
+                    cache: false,
+                    data: formData,                    
+                    beforeSend: function() {
+                        // This callback function will trigger before data is sent
+                        $.mobile.showPageLoadingMsg(true); // This will show ajax spinner
+                    },
+                    complete: function() {
+                        // This callback function will trigger on data sent/received complete
+                        $.mobile.hidePageLoadingMsg(); // This will hide ajax spinner
+                    },
+                    success: function (result) {
+                        //    resultObject.formSubmitionResult = result;
+                        //                $.mobile.changePage("#second");
+                        console.log(result);  
+						
+						//window.location="#page4
+						if (result.success) {
+							$.mobile.changePage("#page5);
+						}
+                    },
+                    error: function (request,error) {
+                        // This callback function will trigger on unsuccessful action                
+                        alert('Network error has occurred please try again!');
+                    }
+                });
+				
+		//window.location="#page5"
 
 	}
 //else if(upload !== 0){
@@ -166,6 +196,22 @@ function validPageDamaged(){
     //}
 
 }
+
+function validPageVin() {
+//var vehiclepic = document.getElementById('vehicleVIN');
+  if(vinPic == 1 ){
+     window.location = "#page-details";
+  }
+  else{
+     navigator.notification.alert(
+            'Take a Picture of Your VIN',  // message
+            alertDismissed,         // callback
+            'Vehicle Identification Number',            // title
+            'Ok'                  // buttonName
+        );
+
+ }
+}
 	 
 // A button will call this function
 // To capture photo
@@ -175,6 +221,57 @@ function capturePhoto() {
         quality: 25, destinationType: Camera.DestinationType.FILE_URI 
     });
 }
+
+function captureVIN(){
+    navigator.camera.getPicture(onImageDataSuccess, onFail, { quality: 25,
+    destinationType: Camera.DestinationType.FILE_URI, });
+}
+
+
+function onImageDataSuccess(imageURI) {
+   if (!imageURI) {
+            document.getElementById('camera_status').innerHTML = "Take picture or select picture from library first.";
+            return;
+    }
+	
+   var vehicleVIN = document.getElementById('vehicleVIN');
+      vehicleVIN.src =  imageURI;
+      if(imageURI.length != 0){
+        vinPic = 1;
+      }
+	  
+	 //If you wish to display image on your page in app
+	displayPhoto(imageURI);	 
+    
+	//NProgress.start();
+	
+	// upload
+    var options = new FileUploadOptions();
+    options.fileKey = "file";
+    // var userid = '123456';
+    var imagefilename = request_id + 'vin' + Number(new Date()) + ".jpg";
+    //options.fileName = imageURI;
+	//options.fileName = imagefilename;
+	options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+    options.mimeType = "image/jpeg"; 
+
+    var params = new Object();
+    params.imageURI = imageURI;
+	params.imageFileName = imagefilename;
+	params.seq = capturedPhoto;
+	//params.id = request_id;
+    //params.userid = sessionStorage.loginuserid;
+    options.params = params;
+    options.chunkedMode = false; //true;
+    
+    var ft = new FileTransfer();
+    var url = encodeURI(API+"/upload.php?id="+request_id+"&nomimage="+imagefilename);
+    ft.upload(imageURI, url, win, fail, options);  
+     
+    
+      }
+
+
 
 // A button will call this function
 // To select image from gallery
@@ -271,7 +368,10 @@ function win(r) {
     vibrate();
     alert("Image uploaded successfully!!"); 
 	uploadedPhoto++;
-    alert(uploadedPhoto);
+    //alert(uploadedPhoto);
+	
+	//document.getElementById('damagedbtn').enabled = true;
+	//NProgress.done(true);				
 				
     //alert("Sent = " + r.bytesSent); 
     console.log("Code = " + r.responseCode);
