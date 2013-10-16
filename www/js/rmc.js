@@ -452,19 +452,23 @@ function displayPhoto(imageURI) {
 
   if(capturedPhoto == 9 ){
     capturedPhoto = 0;
+	$('#picture-demo').show();
   }
 
   capturedPhoto++;
 
 	//alert(capturedPhoto);
 
-	if(capturedPhoto == 1){
-	$("#pictures").append('<div style="display: inline;" data-controltype="image"><img style="width: 100%; height: %" src="'+imageURI+'" id="damagedpart'+capturedPhoto+'" border="1" onclick="removePhoto('+capturedPhoto+');"></div>');
-	 //var damagedpart1 = document.getElementById('damagedpart1');
-			 
+	if(capturedPhoto >= 1 && capturedPhoto <= 8){
+		if (capturedPhoto == 1) {
+			$('#picture-demo').hide();
+		}
+		$("#pictures").append('<div style="display: inline;" data-controltype="image"><img style="width: 100%; height: %" src="'+imageURI+'" id="damagedpart'+capturedPhoto+'" border="1" onclick="removePhoto('+capturedPhoto+');"></div>');
+		//var damagedpart1 = document.getElementById('damagedpart1');			 
 		  //damagedpart1.src =  imageURI;
 		  //damagedpart1.style.visibility = 'visible';
 	}
+	/*
 	else if(capturedPhoto == 2){
 	   var damagedpart2 = document.getElementById('damagedpart2');	 	
 		  damagedpart2.src =  imageURI;
@@ -503,6 +507,7 @@ damagedpart4.style.visibility = 'visible';
 		  damagedpart8.src =  imageURI;  
 		  damagedpart8.style.visibility = 'visible';	
 	}
+	*/
  
 }
 
