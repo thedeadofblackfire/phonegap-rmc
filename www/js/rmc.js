@@ -410,6 +410,10 @@ function getPhoto(source) {
     });
 }
 
+function removePhoto(seq) {
+alert('remove '+seq);
+}
+
 function uploadPhoto(imageURI) {
     if (!imageURI) {
             document.getElementById('camera_status').innerHTML = "Take picture or select picture from library first.";
@@ -456,22 +460,25 @@ function displayPhoto(imageURI) {
 
 	if(capturedPhoto == 1){
 	 var damagedpart1 = document.getElementById('damagedpart1');
-		  $('#damagedpart1').css('visibility', 'visible');
+		  //$('#damagedpart1').css('visibility', 'visible');
+		  damagedpart1.style.visibility = 'visible';
 		  damagedpart1.src =  imageURI;
 	}
 	else if(capturedPhoto == 2){
 	   var damagedpart2 = document.getElementById('damagedpart2');
-	      $('#damagedpart2').css('display', 'inline');
+	 
+		  damagedpart2.style.visibility = 'visible';
 		  damagedpart2.src =  imageURI;
 	}
 	else if(capturedPhoto == 3){
 	   var damagedpart3 = document.getElementById('damagedpart3');
-	   $('#damagedpart3').css('display', 'inline');
+	   damagedpart3.style.visibility = 'visible';
 		  damagedpart3.src =  imageURI;  
 	}
 	else if(capturedPhoto == 4){
 	   var damagedpart4 = document.getElementById('damagedpart4');
-	   $('#damagedpart4').css('display', 'inline');
+
+	   damagedpart4.style.visibility = 'visible';
 		  damagedpart4.src =  imageURI;  
 	}
 	else if(capturedPhoto == 5){
@@ -537,7 +544,7 @@ function fail(error) {
 // Called if something bad happens.
 // 
 function onFail(message) {
-    alert('Failed because: ' + message);
+    console.log('Failed because: ' + message);
 	//var msg ='Impossible de lancer l\'appareil photo';        
     //navigator.notification.alert(msg, null, '');       
 }
