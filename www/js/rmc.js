@@ -119,7 +119,7 @@ function validPageInfo(){
 						if (result.success) {
 							request_id = result.request_id;
 							localStorage.request_id = request_id;
-							$.mobile.changePage("#page4");
+							$.mobile.changePage("#page-details");
 						}
                     },
                     error: function (request,error) {
@@ -132,26 +132,31 @@ function validPageInfo(){
       }
  }
 
- //function to call pagefive 
-function validPageDamaged() {
-	alert(capturedPhoto+ ' '+uploadedPhoto);
-    if(capturedPhoto < 2){
-        navigator.notification.alert(
-            'Take at least TWO snaps of Damaged Part',  // message
-            alertDismissed,         // callback
-            'Snap', // title
-            'Ok'                  // buttonName
-        );
-	} else if (uploadedPhoto !== capturedPhoto) {
-		navigator.notification.alert(
-            'Please Wait until your data uploads!!',  // message
-            alertDismissed,         // callback
-           'Processing', // title
-            'Ok'                  // buttonName
-        );
-	} else {
-			var formData = '';
-			$.ajax({
+ function validPageDetails(){
+ /*
+      var fname = document.getElementById("request_field_firstname").value;
+      var lname = document.getElementById("request_field_lastname").value;
+      var phone = document.getElementById("request_field_phone").value;
+      var email = document.getElementById("request_field_email").value;
+      if (lname == '' || fname == '' || phone == '' || email == '') {  
+		if (ENV == 'dev') {
+			alert('Please enter required field');
+		} else {	    
+			navigator.notification.alert(
+				'Please Enter Required Field',  // message
+				alertDismissed,         // callback
+				'Empty Field',            // title
+				'Ok'                  // buttonName
+			);
+		}
+		 
+      } else {     
+		*/
+		
+			// save db
+			var formData = $("#form-addrequest").serialize();
+            //alert(formData);
+              $.ajax({
                     type: "POST",
                     url: API+"/ajax.php?m=updaterequest&id="+request_id+"&step=2",
                     cache: false,
@@ -171,7 +176,58 @@ function validPageDamaged() {
 						
 						//window.location="#page4
 						if (result.success) {
-							$.mobile.changePage("#page5");
+							$.mobile.changePage("#page-damaged");
+						}
+                    },
+                    error: function (request,error) {
+                        // This callback function will trigger on unsuccessful action                
+                        alert('Network error has occurred please try again!');
+                    }
+                });
+		  
+      //}
+ }
+ 
+ //function to call pagefive 
+function validPageDamaged() {
+	//alert(capturedPhoto+ ' '+uploadedPhoto);
+    if(capturedPhoto < 2){
+        navigator.notification.alert(
+            'Take at least TWO snaps of Damaged Part',  // message
+            alertDismissed,         // callback
+            'Snap', // title
+            'Ok'                  // buttonName
+        );
+	} else if (uploadedPhoto !== capturedPhoto) {
+		navigator.notification.alert(
+            'Please Wait until your data uploads!!',  // message
+            alertDismissed,         // callback
+           'Processing', // title
+            'Ok'                  // buttonName
+        );
+	} else {
+			var formData = '';
+			$.ajax({
+                    type: "POST",
+                    url: API+"/ajax.php?m=updaterequest&id="+request_id+"&step=3",
+                    cache: false,
+                    data: formData,                    
+                    beforeSend: function() {
+                        // This callback function will trigger before data is sent
+                        $.mobile.showPageLoadingMsg(true); // This will show ajax spinner
+                    },
+                    complete: function() {
+                        // This callback function will trigger on data sent/received complete
+                        $.mobile.hidePageLoadingMsg(); // This will hide ajax spinner
+                    },
+                    success: function (result) {
+                        //    resultObject.formSubmitionResult = result;
+                        //                $.mobile.changePage("#second");
+                        console.log(result);  
+						
+						//window.location="#page4
+						if (result.success) {
+							$.mobile.changePage("#page-vin");
 						}
                     },
                     error: function (request,error) {
@@ -200,10 +256,11 @@ function validPageDamaged() {
 function validPageVin() {
 //var vehiclepic = document.getElementById('vehicleVIN');
   if(vinPic == 1 ){
+  /*
 	var formData = '';
 			$.ajax({
                     type: "POST",
-                    url: API+"/ajax.php?m=updaterequest&id="+request_id+"&step=3",
+                    url: API+"/ajax.php?m=updaterequest&id="+request_id+"&step=4",
                     cache: false,
                     data: formData,                    
                     beforeSend: function() {
@@ -229,7 +286,48 @@ function validPageVin() {
                         alert('Network error has occurred please try again!');
                     }
                 });
+				*/
+				
+				var formData = $("#form-confirmrequest").serialize();
+		
+		
+            //alert(formData);
+			
+              $.ajax({
+                    type: "POST",
+                    url: API+"/ajax.php?m=confirmrequest&id="+request_id,
+                    cache: false,
+                    data: formData,                    
+                    beforeSend: function() {
+                        // This callback function will trigger before data is sent
+                        $.mobile.showPageLoadingMsg(true); // This will show ajax spinner
+                    },
+                    complete: function() {
+                        // This callback function will trigger on data sent/received complete
+                        $.mobile.hidePageLoadingMsg(); // This will hide ajax spinner
+                    },
+                    success: function (result) {
+                        //    resultObject.formSubmitionResult = result;
+                        //                $.mobile.changePage("#second");
+                        console.log(result);  
+						
+                        //$("#page-addlocation").dialog('close');
+                        //$('[data-role=dialog]').dialog( "close" );
+						//window.location="#page4
+						if (result.success) {
+							$('#request_id').html(request_id);
+							$.mobile.changePage("#page-completed");
+						}
+                    },
+                    error: function (request,error) {
+                        // This callback function will trigger on unsuccessful action                
+                        alert('Network error has occurred please try again!');
+                    }
+                });
+				
      //window.location = "#page-details";
+	 
+	 localStorage.clear();
   }
   else{
      navigator.notification.alert(
@@ -239,7 +337,7 @@ function validPageVin() {
             'Ok'                  // buttonName
         );
 
- }
+   }
 }
 	 
 // A button will call this function
@@ -306,7 +404,7 @@ function onImageDataSuccess(imageURI) {
 // To select image from gallery
 function getPhoto(source) {
     // Retrieve image file location from specified source
-    navigator.camera.getPicture(uploadPhoto, onFail, { quality: 50,
+    navigator.camera.getPicture(uploadPhoto, onFail, { quality: 25,
         destinationType: navigator.camera.DestinationType.FILE_URI,
         sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
     });
