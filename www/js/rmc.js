@@ -278,7 +278,7 @@ function onImageDataSuccess(imageURI) {
     var options = new FileUploadOptions();
     options.fileKey = "file";
     // var userid = '123456';
-    var imagefilename = request_id + 'vin' + Number(new Date()) + ".jpg";
+    var imagefilename = request_id + '_vin_' + Number(new Date()) + ".jpg";
     //options.fileName = imageURI;
 	//options.fileName = imagefilename;
 	options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
@@ -325,7 +325,7 @@ function uploadPhoto(imageURI) {
     var options = new FileUploadOptions();
     options.fileKey = "file";
     // var userid = '123456';
-    var imagefilename = request_id + Number(new Date()) + ".jpg";
+    var imagefilename = request_id + '_' + Number(new Date()) + ".jpg";
     //options.fileName = imageURI;
 	//options.fileName = imagefilename;
 	options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
