@@ -264,7 +264,7 @@
                     <div class="ui-block-a"><a href="#" onclick="capturePhoto()" data-role="button" data-icon="plus" data-theme="b" data-rel="dialog" data-mini="true"> Take Photo</a> </div>
                     <div class="ui-block-b"><a href="#" onclick="getPhoto();" data-role="button" data-icon="search" data-theme="d" data-mini="true">Browse</a></div>              
             </fieldset>
-		  
+		  <br>
 		  <div style="display: inline; visibility:hidden; text-align:center" data-controltype="image">
               <img style="width: 100%; height: %" src="img/blank.gif" id="damagedpart1" border="1" onclick="removePhoto(1);">
           </div>
@@ -272,23 +272,28 @@
               <img style="width: 100%; height: %" src="img/blank.gif" id="damagedpart2" onclick="removePhoto(2);">
           </div>
           <div style="display: inline; visibility:hidden; text-align:center" data-controltype="image">
-              <img style="width: 100%; height: %" src="img/takepic.png" id="damagedpart3" onclick="removePhoto(3);">
+              <img style="width: 100%; height: %" src="img/blank.gif" id="damagedpart3" onclick="removePhoto(3);">
           </div>
           <div style="display: inline; visibility:hidden; text-align:center" data-controltype="image">
-              <img style="width: 100%; height: %" src="img/takepic.png" id="damagedpart4" onclick="removePhoto(4);">
+              <img style="width: 100%; height: %" src="img/blank.gif" id="damagedpart4" onclick="removePhoto(4);">
           </div>
-          <div style="display: inline" data-controltype="image">
-              <img style="width: 40%; height: %" src="img/takepic.png" id="damagedpart5" onclick="capturePhoto();">
+          <div style="display: inline; visibility:hidden; text-align:center" data-controltype="image">
+              <img style="width: 40%; height: %" src="img/blank.gif" id="damagedpart5" onclick="removePhoto(5);">
           </div>
-          <div style="display: inline" data-controltype="image">
-              <img style="width: 40%; height: %" src="img/takepic.png" id="damagedpart6" onclick="capturePhoto();">
+          <div style="display: inline; visibility:hidden; text-align:center" data-controltype="image">
+              <img style="width: 40%; height: %" src="img/blank.gif" id="damagedpart6" onclick="removePhoto(6);">
           </div>
-          <div style="display: inline" data-controltype="image">
-              <img style="width: 40%; height: %" src="img/takepic.png" id="damagedpart7" onclick="capturePhoto();">
+          <div style="display: inline; visibility:hidden; text-align:center" data-controltype="image">
+              <img style="width: 40%; height: %" src="img/blank.gif" id="damagedpart7" onclick="removePhoto(7);">
           </div>
-           <div style="display: inline" data-controltype="image">
+          <div style="display: inline; visibility:hidden; text-align:center" data-controltype="image">
+              <img style="width: 40%; height: %" src="img/blank.gif" id="damagedpart8" onclick="removePhoto(8);">
+          </div>
+		  <!--
+		    <div style="display: inline" data-controltype="image">
               <img style="width: 40%; height: %" src="img/takepic.png" id="damagedpart8" onclick="capturePhoto();">
           </div>
+		  -->
 		
           <a data-role="button" data-transition="none" data-theme="b" 
           data-icon="arrow-r ios-pack-color-right-arrow" data-iconpos="right" data-iconsize="26" id="damagedbtn" onclick="validPageDamaged();" disabled="disabled">
