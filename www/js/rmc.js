@@ -459,10 +459,11 @@ function displayPhoto(imageURI) {
 	//alert(capturedPhoto);
 
 	if(capturedPhoto == 1){
-	 var damagedpart1 = document.getElementById('damagedpart1');
-		  //$('#damagedpart1').css('visibility', 'visible');		  
-		  damagedpart1.src =  imageURI;
-		  damagedpart1.style.visibility = 'visible';
+	$("#pictures").append('<div style="display: inline;" data-controltype="image"><img style="width: 100%; height: %" src="'+imageURI+'" id="damagedpart'+capturedPhoto+'" border="1" onclick="removePhoto('+capturedPhoto+');"></div>');
+	 //var damagedpart1 = document.getElementById('damagedpart1');
+			 
+		  //damagedpart1.src =  imageURI;
+		  //damagedpart1.style.visibility = 'visible';
 	}
 	else if(capturedPhoto == 2){
 	   var damagedpart2 = document.getElementById('damagedpart2');	 	
