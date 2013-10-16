@@ -456,7 +456,7 @@ function displayPhoto(imageURI) {
 
 	if(capturedPhoto == 1){
 	 var damagedpart1 = document.getElementById('damagedpart1');
-		  $('#damagedpart1').css('display', 'inline');
+		  $('#damagedpart1').css('visibility', 'visible');
 		  damagedpart1.src =  imageURI;
 	}
 	else if(capturedPhoto == 2){
