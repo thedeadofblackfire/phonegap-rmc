@@ -598,9 +598,9 @@ function onFail(message) {
                         //$('[data-role=dialog]').dialog( "close" );
 						//window.location="#page4
 						if (result.success) {
-						
-						    document.forms["form-addrequest"].reset();
-							document.forms["form-confirmrequest"].reset();
+							
+							$('#form-addrequest')[0].reset();
+							$('#form-confirmrequest')[0].reset();						    
 							$('#pictures').html('');
 							$('#picture-demo').show();
 							$('#vehicleVIN').attr('src','img/vinpic2.png');
