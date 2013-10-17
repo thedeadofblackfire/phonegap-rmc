@@ -411,7 +411,15 @@ function getPhoto(source) {
 }
 
 function removePhoto(seq) {
-alert('remove '+seq);
+/*
+	alert('remove '+seq);
+ navigator.notification.confirm(
+        'Are you sure to remove this picture?', // message
+         onConfirm,            // callback to invoke with index of button pressed
+        'Confirm',           // title
+        'OK,Cancel'         // buttonLabels
+    );
+	*/
 }
 
 function uploadPhoto(imageURI) {
