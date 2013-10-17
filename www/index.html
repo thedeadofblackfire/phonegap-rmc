@@ -60,6 +60,11 @@
           data-icon="ios-pack-color-right-arrow" data-iconpos="right" data-iconsize="26">
               Get an Estimate Now
           </a>
+		   <a data-role="button" data-transition="flip" data-theme="c" href="#page-about"
+          data-icon="info ios-pack-color-right-arrow" data-iconpos="right" data-iconsize="26">
+              About Newport Collision
+          </a>
+
       </div>
       <div data-theme="d" data-role="footer" data-position="fixed">
           <h1>
@@ -67,6 +72,54 @@
           </h1>
       </div>
   </div>
+  
+  
+  <div data-role="page" data-control-title="Vehicle Details" data-theme="d" id="page-details">
+      <div data-theme="b" data-role="header">
+          <a data-role="button" data-direction="reverse" data-transition="fade"
+          href="#page-contact" data-icon="back ios-pack-color-back" data-iconpos="left" data-iconsize="26"
+          class="ui-btn-left">
+              &nbsp;
+          </a>
+          <h2>
+              Vehicle Details
+          </h2>
+      </div>
+      <div data-role="content">
+          <div data-controltype="textblock" class=".infotext">
+              <p>
+                  <span style="font-family: 'arial black', 'avant garde';" data-mce-style="font-family: 'arial black', 'avant garde'; font-size: medium; color: #0081ab;">
+                      <b>
+                          <span color="#0081ab" data-mce-style="color: #0081ab;" style="font-size: medium; color: rgb(0, 129, 171);">
+                              <img src="img/2ba2AuW.png" width="43" height="51" style="float: left;"
+                              data-mce-src="img/2ba2AuW.png" data-mce-style="float: left;">
+                          </span>
+                          <span color="#4b82b0" data-mce-style="color: #4b82b0;" style="font-size: medium; color: rgb(75, 130, 176);">
+                              &nbsp;Vehicle Details
+                          </span>
+                          <br>
+                          <span color="#0081ab" data-mce-style="color: #0081ab;" style="font-size: medium; color: rgb(0, 129, 171);">
+                              &nbsp;
+                          </span>
+                          <span color="#0081ab" data-mce-style="color: #0081ab;">
+                              <font color="#888888" size="1">
+                                  Please enter the following details:
+                              </font>
+                          </span>
+                      </b>
+                  </span>
+              </p>
+          </div>
+          <hr style="height:3px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
+		
+      </div>
+      <div data-theme="d" data-role="footer" data-position="fixed">
+          <h3>
+              Copyright (C) 2013 - Newport Collision
+          </h3>
+      </div>
+  </div>
+  
   <div data-role="page" data-control-title="Info" data-theme="d" id="page-contact">
       <div data-theme="b" data-role="header">
           <a data-role="button" data-direction="reverse" data-transition="fade"
@@ -143,77 +196,32 @@
       </div>
   </div>
   
-  <div data-role="page" data-control-title="Vehicle Details" data-theme="d" id="page-details">
+  <div data-role="page" data-control-title="About" data-theme="d" id="page-about">
       <div data-theme="b" data-role="header">
           <a data-role="button" data-direction="reverse" data-transition="fade"
-          href="#page-contact" data-icon="back ios-pack-color-back" data-iconpos="left" data-iconsize="26"
+          href="#page1" data-icon="back ios-pack-color-back" data-iconpos="left" data-iconsize="26"
           class="ui-btn-left">
               &nbsp;
           </a>
           <h2>
-              Vehicle Details
+              About the company
           </h2>
       </div>
-      <div data-role="content">
-          <div data-controltype="textblock" class=".infotext">
-              <p>
-                  <span style="font-family: 'arial black', 'avant garde';" data-mce-style="font-family: 'arial black', 'avant garde'; font-size: medium; color: #0081ab;">
-                      <b>
-                          <span color="#0081ab" data-mce-style="color: #0081ab;" style="font-size: medium; color: rgb(0, 129, 171);">
-                              <img src="img/2ba2AuW.png" width="43" height="51" style="float: left;"
-                              data-mce-src="img/2ba2AuW.png" data-mce-style="float: left;">
-                          </span>
-                          <span color="#4b82b0" data-mce-style="color: #4b82b0;" style="font-size: medium; color: rgb(75, 130, 176);">
-                              &nbsp;Vehicle Details
-                          </span>
-                          <br>
-                          <span color="#0081ab" data-mce-style="color: #0081ab;" style="font-size: medium; color: rgb(0, 129, 171);">
-                              &nbsp;
-                          </span>
-                          <span color="#0081ab" data-mce-style="color: #0081ab;">
-                              <font color="#888888" size="1">
-                                  Please enter the following details:
-                              </font>
-                          </span>
-                      </b>
-                  </span>
-              </p>
-          </div>
-          <hr style="height:3px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
-		  <form id="form-confirmrequest" name="form-confirmrequest" action="" enctype="multipart/form-data" method="POST">      
-              <div data-role="fieldcontain" data-controltype="textinput">
-                  <!--<input name="request_field_car_year" id="request_field_car_year" placeholder="Year of Vehicle" value=""
-                  type="text">-->
-				  <select id="request_field_car_year" name="request_field_car_year" placeholder="Year of Vehicle">				  
-				  </select> 
-              </div>
-              <div data-role="fieldcontain" data-controltype="selectmenu">
-                  <select id="request_field_car_brand" name="request_field_car_brand">
-				  <!--
-                      <option value="Make of Vehicle">
-                          Make of Vehicle
-                      </option>
--->					  
-					  <option value="ACURA">Acura</option> <option value="ALFA">Alfa Romeo</option> <option value="AMC">AMC</option> <option value="ASTON">Aston Martin</option> <option value="AUDI">Audi</option> <option value="BENTL">Bentley</option> <option value="BMW">BMW</option> <option value="BUICK">Buick</option> <option value="CAD">Cadillac</option> <option value="CHEV">Chevrolet</option> <option value="CHRY">Chrysler</option> <option value="DAEW">Daewoo</option> <option value="DATSUN">Datsun</option> <option value="DELOREAN">DeLorean</option> <option value="DODGE">Dodge</option> <option value="EAGLE">Eagle</option> <option value="FER">Ferrari</option> <option value="FIAT">FIAT</option> <option value="FISK">Fisker</option> <option value="FORD">Ford</option> <option value="FREIGHT">Freightliner</option> <option value="GEO">Geo</option> <option value="GMC">GMC</option> <option value="HONDA">Honda</option> <option value="AMGEN">HUMMER</option> <option value="HYUND">Hyundai</option> <option value="INFIN">Infiniti</option> <option value="ISU">Isuzu</option> <option value="JAG">Jaguar</option> <option value="JEEP">Jeep</option> <option value="KIA">Kia</option> <option value="LAM">Lamborghini</option> <option value="ROV">Land Rover</option> <option value="LEXUS">Lexus</option> <option value="LINC">Lincoln</option> <option value="LOTUS">Lotus</option> <option value="MAS">Maserati</option> <option value="MAYBACH">Maybach</option> <option value="MAZDA">Mazda</option> <option value="MCLAREN">McLaren</option> <option value="MB">Mercedes-Benz</option> <option value="MERC">Mercury</option> <option value="MINI">MINI</option> <option value="MIT">Mitsubishi</option> <option value="NISSAN">Nissan</option> <option value="OLDS">Oldsmobile</option> <option value="PLYM">Plymouth</option> <option value="PONT">Pontiac</option> <option value="POR">Porsche</option> <option value="RAM">RAM</option> <option value="RR">Rolls-Royce</option> <option value="SAAB">Saab</option> <option value="SATURN">Saturn</option> <option value="SCION">Scion</option> <option value="SMART">smart</option> <option value="SRT">SRT</option> <option value="SUB">Subaru</option> <option value="SUZUKI">Suzuki</option> <option value="TESLA">Tesla</option> <option value="TOYOTA">Toyota</option> <option value="VOLKS">Volkswagen</option> <option value="VOLVO">Volvo</option> <option value="YUGO">Yugo</option>              
-                  </select>
-              </div>
-              <div data-role="fieldcontain" data-controltype="textinput">
-                  <input name="request_field_car_model" id="request_field_car_model" placeholder="Model of Vehicle" value=""
-                  type="text">
-              </div>
-              <div data-role="fieldcontain" data-controltype="textinput">
-                  <input name="request_field_car_mileage" id="request_field_car_mileage" placeholder="Mileage of Vehicle" value=""
-                  type="text">
-              </div>
-              <div data-role="fieldcontain" data-controltype="textarea">
-                  <textarea name="request_field_note" id="request_field_note" placeholder="Add notes here (if any)"></textarea>
-              </div>
-          </form>
-          <a data-role="button" data-transition="none" data-theme="b" href="#" data-icon="arrow-r ios-pack-color-right-arrow"
-          data-iconpos="right" data-iconsize="26" onclick="validPageDetails()">
-                 Next Step
-          </a>
-      </div>
+	  <div data-role="content" class="ui-content" role="main">
+
+            <h2>ORANGE COUNTY'S PREMIER COLLISION REPAIR FACILITY</h2>
+			<p>At Newport Collision, customer satisfaction is our top priority. We strive to serve Orange County by performing the finest auto-repair services possible. We understand that your vehicle is a very personal and important investment. Our staff and technicians are committed to ensuring that you feel confident with us repairing your vehicle. In order to provide you with peace of mind, we offer: written lifetime warranty, courtesy valet pickup and delivery, onsite rental car arrangements, 24 hour towing, even paintless dent removal and detailing to name a few of our many services.</p>
+		
+
+				<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"> 					
+                    <li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b ui-first-child">Contact Us</li>
+                    <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="tel:9496453368" class="ui-link-inherit">Phone: (949)-645-3368</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div></li>
+					<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="mailto:info@newportcollision.net" class="ui-link-inherit">Email: info@newportcollision.net</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div></li>					
+					<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-last-child ui-btn-hover-c"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="http://www.newportcollision.net" class="ui-link-inherit">Website: http://www.newportcollision.net</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div></li>
+				</ul>
+
+            
+        </div>      
       <div data-theme="d" data-role="footer" data-position="fixed">
           <h3>
               Copyright (C) 2013 - Newport Collision
@@ -407,9 +415,9 @@
               </p>
           </div>
 		  -->
-          <hr style="height:3px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
+          <!--<hr style="height:3px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">-->
 		  Receipt #<span id="request_id"></span>
-        
+           <p>Thank you for requesting an estimate on your car repair from Newport Collision. We will contact you as soon as we have your repair estimate.</p>
       </div>
       <div data-theme="d" data-role="footer" data-position="fixed">
           <h3>
