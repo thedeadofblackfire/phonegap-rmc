@@ -598,6 +598,13 @@ function onFail(message) {
                         //$('[data-role=dialog]').dialog( "close" );
 						//window.location="#page4
 						if (result.success) {
+						
+						    document.forms["form-addrequest"].reset();
+							document.forms["form-confirmrequest"].reset();
+							$('#pictures').html('');
+							$('#picture-demo').show();
+							$('#vehicleVIN').attr('src','img/vinpic2.png');
+						
 							$('#request_id').html(request_id);
 							$.mobile.changePage("#page-completed");
 						}
