@@ -134,25 +134,8 @@ function validPageInfo(){
  }
 
  function validPageDetails(){
- /*
-      var fname = document.getElementById("request_field_firstname").value;
-      var lname = document.getElementById("request_field_lastname").value;
-      var phone = document.getElementById("request_field_phone").value;
-      var email = document.getElementById("request_field_email").value;
-      if (lname == '' || fname == '' || phone == '' || email == '') {  
-		if (ENV == 'dev') {
-			alert('Please enter required field');
-		} else {	    
-			navigator.notification.alert(
-				'Please Enter Required Field',  // message
-				alertDismissed,         // callback
-				'Empty Field',            // title
-				'Ok'                  // buttonName
-			);
-		}
-		 
-      } else {     
-		*/
+    
+		
 		
 			// save db
 			var formData = $("#form-addrequest").serialize();
@@ -186,7 +169,7 @@ function validPageInfo(){
                     }
                 });
 		  
-      //}
+      
  }
  
  //function to call pagefive 
@@ -351,16 +334,25 @@ function capturePhoto() {
 }
 
 function captureVIN(){
-    navigator.camera.getPicture(onImageDataSuccess, onFail, { quality: 25,
+    navigator.camera.getPicture(uploadVin, onFail, { quality: 25,
     destinationType: Camera.DestinationType.FILE_URI, });
 }
 
+// A button will call this function
+// To select image from gallery
+function getVIN(source) {
+    // Retrieve image file location from specified source
+    navigator.camera.getPicture(uploadVin, onFail, { quality: 25,
+        destinationType: navigator.camera.DestinationType.FILE_URI,
+        sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
+    });
+}
 
-function onImageDataSuccess(imageURI) {
+function uploadVin(imageURI) {
    if (!imageURI) {
-            document.getElementById('camera_status').innerHTML = "Take picture or select picture from library first.";
-            return;
-    }
+        document.getElementById('camera_status').innerHTML = "Take picture or select picture from library first.";
+        return;
+   }
 	
    var vehicleVIN = document.getElementById('vehicleVIN');
       vehicleVIN.src =  imageURI;
@@ -397,7 +389,7 @@ function onImageDataSuccess(imageURI) {
     ft.upload(imageURI, url, win, fail, options);  
      
     
-      }
+}
 
 
 
@@ -410,6 +402,7 @@ function getPhoto(source) {
         sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
     });
 }
+
 
 function removePhoto(seq) {
 /*
@@ -702,6 +695,19 @@ function ValidateEmail(inputText) {
 
 jQuery(function($){
    $("#request_field_phone").mask("(999) 999-9999");
+   
+   $(document).on('pagebeforeshow', '#page-contact', function(){  
+		console.log('#page-contact pagebeforeshow');	
+		
+		if(typeof(Storage)!=="undefined") {
+		   $('#request_field_firstname').val(localStorage.fname);
+		   $('#request_field_lastname').val(localStorage.lname);   
+		   $('#request_field_phone').val(localStorage.phone);
+		   $('#request_field_email').val(localStorage.email);
+		}
+		
+    });
+	
 });
 
 //alert dialog dismissed
