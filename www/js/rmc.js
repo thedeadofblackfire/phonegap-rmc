@@ -709,7 +709,7 @@ function ValidateEmail(inputText) {
 
 jQuery(function($){
 
-	 $("#request_field_phone").mask("(999) 999-9999");
+	 $("#request_field_phone").mask("999-999-9999");
    
    
    $(document).on('pagebeforeshow', '#page-contact', function(){  
