@@ -119,7 +119,8 @@ function validPageInfo(){
 						if (result.success) {
 							request_id = result.request_id;
 							localStorage.request_id = request_id;
-							$.mobile.changePage("#page-details");
+							$.mobile.changePage("#page-damaged");
+							//$.mobile.changePage("#page-details");
 						}
                     },
                     error: function (request,error) {
@@ -209,7 +210,7 @@ function validPageDamaged() {
 			var formData = '';
 			$.ajax({
                     type: "POST",
-                    url: API+"/ajax.php?m=updaterequest&id="+request_id+"&step=3",
+                    url: API+"/ajax.php?m=updaterequest&id="+request_id+"&step=2",
                     cache: false,
                     data: formData,                    
                     beforeSend: function() {
