@@ -655,10 +655,15 @@ var email = 'gthapa@alucio.com, letsplay9@gmail.com';
             + '?subject=' + encodeURIComponent(subject)
             + '&body=' + encodeURIComponent(body);
 */
-            localStorage.clear();
+            
+			
+			//localStorage.clear();
             // navigator.app.exitApp();
 }
 
+function closeMeNow() {
+        navigator.app.exitApp();
+    }
  // Beep three times
     //
     function playBeep() {
