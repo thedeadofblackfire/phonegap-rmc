@@ -29,12 +29,12 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         //checkConnection();
-		populatedropdown("request_field_car_year");
+		//populatedropdown("request_field_car_year");
         //app.receivedEvent('deviceready');
         // Do cool things here...
     },
 	onLoad: function() {	
-		populatedropdown("request_field_car_year");
+		//populatedropdown("request_field_car_year");
 	},
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -82,15 +82,17 @@ function validPageInfo(){
 		}
 		 
       } else {     
-		  if(typeof(Storage)!=="undefined") {
-			  localStorage.lname=lname;
-			  localStorage.fname=fname;
-			  localStorage.phone=phone;
-			  localStorage.email=email;
+		  //if(typeof(Storage)!=="undefined") {
+		  window.localStorage.setItem('lname', lname);
+			  window.localStorage.setItem('fname',fname);
+			  window.localStorage.setItem('phone',phone);
+			  window.localStorage.setItem('email',email);
 			  //document.getElementById("result").innerHTML="Last name: " + localStorage.lastname;
+			  /*
 		  } else {
 				console.log("No DB found");
 		  }
+		  */
 		  					  
 		  var result = ValidateEmail(email);
 		  
@@ -118,7 +120,7 @@ function validPageInfo(){
 						//window.location="#page4
 						if (result.success) {
 							request_id = result.request_id;
-							localStorage.request_id = request_id;
+							window.localStorage.setItem('request_id', request_id);
 							$.mobile.changePage("#page-damaged");
 							//$.mobile.changePage("#page-details");
 						}
@@ -706,17 +708,22 @@ function ValidateEmail(inputText) {
 } 
 
 jQuery(function($){
-   $("#request_field_phone").mask("(999) 999-9999");
+
+	 $("#request_field_phone").mask("(999) 999-9999");
+   
    
    $(document).on('pagebeforeshow', '#page-contact', function(){  
 		console.log('#page-contact pagebeforeshow');	
 		
-		if(typeof(Storage)!=="undefined") {
-		   $('#request_field_firstname').val(localStorage.fname);
-		   $('#request_field_lastname').val(localStorage.lname);   
-		   $('#request_field_phone').val(localStorage.phone);
-		   $('#request_field_email').val(localStorage.email);
+		if(window.localStorage){
+	
+		  $('#request_field_firstname').val(window.localStorage.getItem('fname'));
+		   $('#request_field_lastname').val(window.localStorage.getItem('lname'));   
+		   $('#request_field_phone').val(window.localStorage.getItem('phone'));
+		   $('#request_field_email').val(window.localStorage.getItem('email'));
 		}
+		
+	
 		
     });
 	
