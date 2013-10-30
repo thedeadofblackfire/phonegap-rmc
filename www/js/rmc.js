@@ -604,8 +604,10 @@ function onFail(message) {
 							
 							$('#form-addrequest')[0].reset();
 							$('#form-confirmrequest')[0].reset();						    
-							$('#pictures').html('');
-							$('#picture-demo').show();
+							//$('#pictures').html('');
+							//$('#picture-demo').show();
+						
+							$('.damagedpart').attr('src','img/takepic.png');
 							$('#vehicleVIN').attr('src','img/vinpic2.png');
 						
 							$('#request_id').html(request_id);
@@ -709,7 +711,7 @@ function ValidateEmail(inputText) {
 
 jQuery(function($){
 
-	 $("#request_field_phone").mask("999-999-9999");
+	// $("#request_field_phone").mask("999-999-9999");
    
    
    $(document).on('pagebeforeshow', '#page-contact', function(){  
