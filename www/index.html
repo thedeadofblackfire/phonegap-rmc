@@ -167,7 +167,7 @@
                   <input name="request_field_email" id="request_field_email" placeholder="Email" value="" type="text" tabindex="4">
               </div>
 			  <a data-role="button" data-transition="none" data-theme="b" data-icon="arrow-r"
-              data-icon="ios-pack-color-right-arrow" data-iconpos="right" data-iconsize="26" onclick="validPageInfo();">
+              data-icon="ios-pack-color-right-arrow" data-iconpos="right" data-iconsize="26" onclick="validPageInfo();" tabindex="5">
                   Next Step
               </a>
 			  <!--
@@ -304,9 +304,25 @@
 		  <br>
 		  <div id="pictures"></div>
 		  
+		  <!--
 		  <div id="picture-demo" style="display: inline" data-controltype="image">
               <img style="width: 100%; height: %" src="img/vinpic2.png" onclick="capturePhoto();">
           </div>
+		  -->
+		  
+		    <div style="display: inline" data-controltype="image">
+              <img style="width: 49%; height: %" src="img/takepic.png" id="damagedpart1" onclick="capturePhoto();" onclick="removePhoto(1);">
+          </div>
+		    <div style="display: inline" data-controltype="image">
+              <img style="width: 49%; height: %" src="img/takepic.png" id="damagedpart2" onclick="capturePhoto();" onclick="removePhoto(2);">
+          </div>
+		      <div style="display: inline" data-controltype="image">
+              <img style="width: 49%; height: %" src="img/takepic.png" id="damagedpart3" onclick="capturePhoto();" onclick="removePhoto(3);">
+          </div>
+		    <div style="display: inline" data-controltype="image">
+              <img style="width: 49%; height: %" src="img/takepic.png" id="damagedpart4" onclick="capturePhoto();" onclick="removePhoto(4);">
+          </div>
+		  
 		  <!--
 		  <div style="display: inline; visibility:hidden; text-align:center" data-controltype="image">
               <img style="width: 100%; height: %" src="img/blank.gif" id="damagedpart1" border="1" onclick="removePhoto(1);">
@@ -402,7 +418,7 @@
               <img style="width: 100%; height: px" src="img/vinpic2.png" id="vehicleVIN" onclick="captureVIN();">
           </div>          
 		   <div data-role="fieldcontain" data-controltype="textarea">
-                  <textarea name="request_field_note" id="request_field_note" placeholder="Add notes here (if any)"></textarea>
+                  <textarea name="request_field_note" id="request_field_note" style="width: 100%; " placeholder="Add notes here (if any)"></textarea>
               </div>
 		  <a data-role="button" data-transition="none" data-theme="b" href="#" data-icon="arrow-r ios-pack-color-right-arrow"
           data-iconpos="right" data-iconsize="26" onclick="validPageVin()">

@@ -361,7 +361,8 @@ function uploadVin(imageURI) {
       }
 	  
 	 //If you wish to display image on your page in app
-	displayPhoto(imageURI);	 
+	//displayPhoto(imageURI);	 
+	capturedPhoto++;
     
 	//NProgress.start();
 	
@@ -454,7 +455,7 @@ function displayPhoto(imageURI) {
 
   if(capturedPhoto == 9 ){
     capturedPhoto = 0;
-	$('#picture-demo').show();
+	//$('#picture-demo').show();
   }
 
   capturedPhoto++;
@@ -463,12 +464,18 @@ function displayPhoto(imageURI) {
 
 	if(capturedPhoto >= 1 && capturedPhoto <= 8){
 		if (capturedPhoto == 1) {
-			$('#picture-demo').hide();
+			//$('#picture-demo').hide();
 		}
-		$("#pictures").prepend('<div style="display: inline;" data-controltype="image"><img style="width: 100%; height: %" src="'+imageURI+'" id="damagedpart'+capturedPhoto+'" border="1" onclick="removePhoto('+capturedPhoto+');"></div>');
+		//$("#pictures").prepend('<div style="display: inline;" data-controltype="image"><img style="width: 100%; height: %" src="'+imageURI+'" id="damagedpart'+capturedPhoto+'" border="1" onclick="removePhoto('+capturedPhoto+');"></div>');
+		
 		//var damagedpart1 = document.getElementById('damagedpart1');			 
 		  //damagedpart1.src =  imageURI;
 		  //damagedpart1.style.visibility = 'visible';
+		  
+		 var damagedpart = document.getElementById('damagedpart'+capturedPhoto);	 	
+	     damagedpart.src = imageURI;
+		 damagedpart.style.visibility = 'visible';
+		
 	}
 	/*
 	else if(capturedPhoto == 2){
