@@ -313,7 +313,7 @@ function validPageVin() {
 				
      //window.location = "#page-details";
 	 
-	 localStorage.clear();
+	 //localStorage.clear();
   }
   else{
      navigator.notification.alert(
