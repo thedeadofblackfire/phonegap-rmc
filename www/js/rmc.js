@@ -588,18 +588,19 @@ function win(r) {
 }
 //Failure callback
 function fail(error) {
-   alert("There was an error uploading image");
+   console.log("There was an error uploading image");
    
    switch (error.code) 
     {  
      case FileTransferError.FILE_NOT_FOUND_ERR: 
-      alert("Photo file not found"); 
+      console.log("Photo file not found"); 
       break; 
      case FileTransferError.INVALID_URL_ERR: 
-      alert("Bad Photo URL"); 
+      console.log("Bad Photo URL"); 
       break; 
      case FileTransferError.CONNECTION_ERR: 
-      alert("Connection error "+error.source+" "+error.target); 
+      console.log("Connection error "+error.source+" "+error.target); 
+	  // @todo need to upload again using error.source as imageURI
       break; 
     } 
 
