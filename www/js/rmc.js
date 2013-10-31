@@ -316,7 +316,9 @@ function validPageVin() {
 							window.localStorage.setItem('request_id', '');
 							
 							//$('#form-addrequest')[0].reset();
-							$('#form-confirmrequest')[0].reset();						    
+							$('#form-confirmrequest')[0].reset();	
+ 					capturedPhoto = 0;
+					uploadedPhoto = 0;							
 							//$('#pictures').html('');
 							//$('#picture-demo').show();
 						
