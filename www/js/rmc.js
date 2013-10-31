@@ -599,7 +599,7 @@ function fail(error) {
       alert("Bad Photo URL"); 
       break; 
      case FileTransferError.CONNECTION_ERR: 
-      alert("Connection error"); 
+      alert("Connection error "+error.source+" "+error.target); 
       break; 
     } 
 
