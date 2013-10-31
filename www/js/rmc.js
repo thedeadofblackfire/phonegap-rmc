@@ -283,8 +283,7 @@ function validPageVin() {
                 });
 				*/
 				
-				var formData = $("#form-confirmrequest").serialize();
-		
+			var formData = $("#form-confirmrequest").serialize();
 		
             //alert(formData);
 			
@@ -311,6 +310,20 @@ function validPageVin() {
 						//window.location="#page4
 						if (result.success) {
 							$('#request_id').html(request_id);
+							
+							// clean datas
+							request_id = '';
+							window.localStorage.setItem('request_id', '');
+							
+							//$('#form-addrequest')[0].reset();
+							$('#form-confirmrequest')[0].reset();						    
+							//$('#pictures').html('');
+							//$('#picture-demo').show();
+						
+							$('.damagedpart').attr('src','img/takepic.png');
+							$('#vehicleVIN').attr('src','img/vinpic2.png');
+							
+							// move to final page
 							$.mobile.changePage("#page-completed");
 						}
                     },
@@ -397,8 +410,7 @@ function uploadVin(imageURI) {
     
     var ft = new FileTransfer();
     var url = encodeURI(API+"/upload.php?id="+request_id+"&nomimage="+imagefilename);
-    ft.upload(imageURI, url, win, fail, options);  
-     
+    ft.upload(imageURI, url, win, fail, options);       
     
 }
 
