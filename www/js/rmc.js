@@ -184,6 +184,7 @@ function validPageDamaged() {
             'Snap', // title
             'Ok'                  // buttonName
         );
+		/*
 	} else if (uploadedPhoto !== capturedPhoto) {
 		navigator.notification.alert(
             'Please Wait until your data uploads!!',  // message
@@ -191,6 +192,7 @@ function validPageDamaged() {
            'Processing', // title
             'Ok'                  // buttonName
         );
+		*/
 	} else {
 			var formData = '';
 			$.ajax({
@@ -241,7 +243,14 @@ function validPageDamaged() {
 
 function validPageVin() {
 //var vehiclepic = document.getElementById('vehicleVIN');
-  if(vinPic == 1 ){
+  if (uploadedPhoto !== capturedPhoto) {
+		navigator.notification.alert(
+            'Please Wait until your data uploads!!',  // message
+            alertDismissed,         // callback
+           'Processing', // title
+            'Ok'                  // buttonName
+        );
+  } else if(vinPic == 1){
   /*
 	var formData = '';
 			$.ajax({
@@ -314,8 +323,7 @@ function validPageVin() {
      //window.location = "#page-details";
 	 
 	 //localStorage.clear();
-  }
-  else{
+  } else {
      navigator.notification.alert(
             'Take a Picture of Your VIN',  // message
             alertDismissed,         // callback
