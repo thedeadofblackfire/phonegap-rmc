@@ -331,12 +331,12 @@ function validPageVin() {
 function capturePhoto() {
     // Take picture using device camera and retrieve image as base64-encoded string
     navigator.camera.getPicture(uploadPhoto, onFail, { 
-        quality: 25, destinationType: Camera.DestinationType.FILE_URI 
+        quality: 20, destinationType: Camera.DestinationType.FILE_URI 
     });
 }
 
 function captureVIN(){
-    navigator.camera.getPicture(uploadVin, onFail, { quality: 25,
+    navigator.camera.getPicture(uploadVin, onFail, { quality: 20,
     destinationType: Camera.DestinationType.FILE_URI, });
 }
 
@@ -344,7 +344,7 @@ function captureVIN(){
 // To select image from gallery
 function getVIN(source) {
     // Retrieve image file location from specified source
-    navigator.camera.getPicture(uploadVin, onFail, { quality: 25,
+    navigator.camera.getPicture(uploadVin, onFail, { quality: 20,
         destinationType: navigator.camera.DestinationType.FILE_URI,
         sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
     });
@@ -400,7 +400,7 @@ function uploadVin(imageURI) {
 // To select image from gallery
 function getPhoto(source) {
     // Retrieve image file location from specified source
-    navigator.camera.getPicture(uploadPhoto, onFail, { quality: 25,
+    navigator.camera.getPicture(uploadPhoto, onFail, { quality: 20,
         destinationType: navigator.camera.DestinationType.FILE_URI,
         sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
     });
@@ -712,7 +712,6 @@ function ValidateEmail(inputText) {
 jQuery(function($){
 
 	// $("#request_field_phone").mask("999-999-9999");
-   
    
    $(document).on('pagebeforeshow', '#page-contact', function(){  
 		console.log('#page-contact pagebeforeshow');	
