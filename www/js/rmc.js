@@ -8,7 +8,7 @@ var request_id = '';
 
 var capturedPhoto = 0;
 var uploadedPhoto = 0;
-var vinPic;
+var vinPic = 0;
 
 var app = {
     // Application Constructor
@@ -714,6 +714,7 @@ jQuery(function($){
 		
 		capturedPhoto = 0;
 		uploadedPhoto = 0;
+		vinPic = 0;
 							
 		if(window.localStorage){	
 		   $('#request_field_firstname').val(window.localStorage.getItem('fname'));
