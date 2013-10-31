@@ -243,6 +243,7 @@ function validPageDamaged() {
 
 function validPageVin() {
 //var vehiclepic = document.getElementById('vehicleVIN');
+/*
   if (uploadedPhoto !== capturedPhoto) {
 		navigator.notification.alert(
             'Please Wait until your data uploads!!',  // message
@@ -250,7 +251,9 @@ function validPageVin() {
            'Processing', // title
             'Ok'                  // buttonName
         );
-  } else if(vinPic == 1){
+  } 
+*/  
+  if(vinPic == 1){
   /*
 	var formData = '';
 			$.ajax({
@@ -317,8 +320,8 @@ function validPageVin() {
 							
 							//$('#form-addrequest')[0].reset();
 							$('#form-confirmrequest')[0].reset();	
-							capturedPhoto = 0;
-							uploadedPhoto = 0;							
+							//capturedPhoto = 0;
+							//uploadedPhoto = 0;							
 							//$('#pictures').html('');
 							//$('#picture-demo').show();
 						
@@ -709,9 +712,11 @@ jQuery(function($){
    $(document).on('pagebeforeshow', '#page-contact', function(){  
 		console.log('#page-contact pagebeforeshow');	
 		
-		if(window.localStorage){
-	
-		  $('#request_field_firstname').val(window.localStorage.getItem('fname'));
+		capturedPhoto = 0;
+		uploadedPhoto = 0;
+							
+		if(window.localStorage){	
+		   $('#request_field_firstname').val(window.localStorage.getItem('fname'));
 		   $('#request_field_lastname').val(window.localStorage.getItem('lname'));   
 		   $('#request_field_phone').val(window.localStorage.getItem('phone'));
 		   $('#request_field_email').val(window.localStorage.getItem('email'));
