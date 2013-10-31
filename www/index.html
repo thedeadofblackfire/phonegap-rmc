@@ -408,16 +408,17 @@
           </div>
           <hr style="height:3px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
 		  <form id="form-confirmrequest" name="form-confirmrequest" action="" enctype="multipart/form-data" method="POST"> 
+		    		   <fieldset class="ui-grid-a">
+                    <div class="ui-block-a"><a href="#" onclick="captureVIN()" data-role="button" data-icon="plus" data-theme="b" data-rel="dialog" data-mini="true"> Take Photo</a> </div>
+                    <div class="ui-block-b"><a href="#" onclick="getVIN();" data-role="button" data-icon="search" data-theme="d" data-mini="true">Browse</a></div>              
+            </fieldset>
 		  <p>Please take a picture of your Vehicle Identification Number, the VIN is located on side of drivers door or on top of dashboard looking threw windshield.</p>
 
 		  <br>
 		  <div style=" text-align:center" data-controltype="image">
-			<img src="img/vin.png" alt="VIN" />
+			<img style="width: 100%; height: px" src="img/vin.png" alt="VIN" />
 		  </div>
-		  		   <fieldset class="ui-grid-a">
-                    <div class="ui-block-a"><a href="#" onclick="captureVIN()" data-role="button" data-icon="plus" data-theme="b" data-rel="dialog" data-mini="true"> Take Photo</a> </div>
-                    <div class="ui-block-b"><a href="#" onclick="getVIN();" data-role="button" data-icon="search" data-theme="d" data-mini="true">Browse</a></div>              
-            </fieldset>
+		
           <div style=" text-align:center" data-controltype="image">
               <img style="width: 100%; height: px" src="img/vinpic2.png" id="vehicleVIN" onclick="captureVIN();">
           </div>          

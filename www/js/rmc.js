@@ -385,7 +385,7 @@ function uploadVin(imageURI) {
 	//params.id = request_id;
     //params.userid = sessionStorage.loginuserid;
     options.params = params;
-    options.chunkedMode = false; //true;
+    options.chunkedMode = true; //true;
     
     var ft = new FileTransfer();
     var url = encodeURI(API+"/upload.php?id="+request_id+"&nomimage="+imagefilename);
@@ -445,13 +445,36 @@ function uploadPhoto(imageURI) {
 	//params.id = request_id;
     //params.userid = sessionStorage.loginuserid;
     options.params = params;
-    options.chunkedMode = false; //true;
+    options.chunkedMode = true; //true;
     
     var ft = new FileTransfer();
     var url = encodeURI(API+"/upload.php?id="+request_id+"&nomimage="+imagefilename);
     ft.upload(imageURI, url, win, fail, options);
 	//ft.upload(imageURI, url, win, fail, options, true);
 }
+
+/*
+yes u can upload videos too.
+
+use this
+
+navigator.camera.getPicture(successFn, errorFn, { quality: 50,
+        destinationType: this.photoDestinationType.FILE_URI,
+        sourceType: source,
+        mediaType: this.fileMediaType.ALLMEDIA  });
+this will open up gallery where u can choose a video too.
+
+then u can upload it using
+
+var ft = new FileTransfer();
+var options = new FileUploadOptions();
+    options.fileKey="document";
+    options.params={};
+    options.fileName =  fileName;
+    options.params.fileName = options.fileName ;
+    options.chunkedMode = true;
+ft.upload(fileURI, uploadUrl, successFn, errorFn, options);
+*/
 
 function displayPhoto(imageURI) {
 
