@@ -317,8 +317,8 @@ function validPageVin() {
 							
 							//$('#form-addrequest')[0].reset();
 							$('#form-confirmrequest')[0].reset();	
- 					capturedPhoto = 0;
-					uploadedPhoto = 0;							
+							capturedPhoto = 0;
+							uploadedPhoto = 0;							
 							//$('#pictures').html('');
 							//$('#picture-demo').show();
 						
@@ -612,59 +612,9 @@ function onFail(message) {
     //navigator.notification.alert(msg, null, '');       
 }
 
-//alert dialog dismissed
-        function alertDismissed() {
-            // do something
-        }
-
-        function composeText(){
+function composeText(){
 		
-		var formData = $("#form-confirmrequest").serialize();
-		
-		
-            //alert(formData);
-			
-              $.ajax({
-                    type: "POST",
-                    url: API+"/ajax.php?m=confirmrequest&id="+request_id,
-                    cache: false,
-                    data: formData,                    
-                    beforeSend: function() {
-                        // This callback function will trigger before data is sent
-                        $.mobile.showPageLoadingMsg(true); // This will show ajax spinner
-                    },
-                    complete: function() {
-                        // This callback function will trigger on data sent/received complete
-                        $.mobile.hidePageLoadingMsg(); // This will hide ajax spinner
-                    },
-                    success: function (result) {
-                        //    resultObject.formSubmitionResult = result;
-                        //                $.mobile.changePage("#second");
-                        console.log(result);  
-						
-                        //$("#page-addlocation").dialog('close');
-                        //$('[data-role=dialog]').dialog( "close" );
-						//window.location="#page4
-						if (result.success) {
-							
-							$('#form-addrequest')[0].reset();
-							$('#form-confirmrequest')[0].reset();						    
-							//$('#pictures').html('');
-							//$('#picture-demo').show();
-						
-							$('.damagedpart').attr('src','img/takepic.png');
-							$('#vehicleVIN').attr('src','img/vinpic2.png');
-						
-							$('#request_id').html(request_id);
-							$.mobile.changePage("#page-completed");
-						}
-                    },
-                    error: function (request,error) {
-                        // This callback function will trigger on unsuccessful action                
-                        alert('Network error has occurred please try again!');
-                    }
-                });
-				/*
+/*
 var vehiclemileage = document.getElementById('vehiclemileage').value;
 var vehiclemodel = document.getElementById('vehiclemodel').value;
 var message1 = document.getElementById('message_body').value;
@@ -695,8 +645,6 @@ var dated, fnamed, phoned, emailed, link1, link2, link3, link4, link5, link6, li
   link9 = localStorage.vin;
   }
   
-  */
-/*
 var email = 'gthapa@alucio.com, letsplay9@gmail.com';
         var subject = 'Get Your Estimate';
         var body = "Model of Vehicle: " + vehiclemodel +"\n"+ "Make of Vehicle: " + strUser + "\n" + "Mileage of Vehicle: "+vehiclemileage + "\n" + "Estimate Date: " + dated +"\n" + "Client's First Name: " + fnamed + "\n" + "Client's Phone Number: " + phoned +"\n" + "Client's Email: " + emailed + "\n" + "Make of Vehicle: " + makevehicle +"\n"  + "Client's Message: " + message1 + "\n" +"Download URL of all images: " + link1 + "\n" +link2 + "\n" +link3 + "\n" +link4+ "\n" +link5+"\n" + link6+"\n" + link7+ "\n" +link8 + "\n" + link9;
@@ -713,8 +661,8 @@ var email = 'gthapa@alucio.com, letsplay9@gmail.com';
 function closeMeNow() {
         navigator.app.exitApp();
     }
- // Beep three times
-    //
+	
+ // Beep times
     function playBeep() {
         navigator.notification.beep(1);
     }
@@ -768,9 +716,7 @@ jQuery(function($){
 		   $('#request_field_phone').val(window.localStorage.getItem('phone'));
 		   $('#request_field_email').val(window.localStorage.getItem('email'));
 		}
-		
-	
-		
+					
     });
 	
 });
