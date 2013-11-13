@@ -10,6 +10,8 @@ var capturedPhoto = 0;
 var uploadedPhoto = 0;
 var vinPic = 0;
 
+//var statusDom;
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -32,6 +34,8 @@ var app = {
 		//populatedropdown("request_field_car_year");
         //app.receivedEvent('deviceready');
         // Do cool things here...
+       
+        // statusDom = document.querySelector('#status');
     },
 	onLoad: function() {	
 		//populatedropdown("request_field_car_year");
@@ -474,6 +478,29 @@ function uploadPhoto(imageURI) {
     
     var ft = new FileTransfer();
     var url = encodeURI(API+"/upload.php?id="+request_id+"&nomimage="+imagefilename);
+    ft.onprogress = function(progressEvent) {
+        if (progressEvent.lengthComputable) {
+          var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
+		  //statusDom.innerHTML = perc + "% uploaded...";
+          $('.status').html(perc + "% uploaded...");
+          //loadingStatus.setPercentage(progressEvent.loaded / progressEvent.total);
+        } else {
+          //loadingStatus.increment();
+          var statusUploaded = $('.status').html();
+          if (statusUploaded == "") {
+              $('.status').html('Uploading');
+          } else {
+              $('.status').html(statusUploaded+'.');
+          }
+          /*
+          if(statusDom.innerHTML == "") {
+				statusDom.innerHTML = "Uploading";
+		  } else {
+				statusDom.innerHTML += ".";
+		  }
+          */
+        }
+    };
     ft.upload(imageURI, url, win, fail, options);
 	//ft.upload(imageURI, url, win, fail, options, true);
 }
@@ -577,6 +604,8 @@ function win(r) {
     console.log("Image uploaded successfully!!"); 
 	uploadedPhoto++;
     //alert(uploadedPhoto);
+    
+    $('.status').html('');
 	
 	//document.getElementById('damagedbtn').enabled = true;
 	//NProgress.done(true);				
