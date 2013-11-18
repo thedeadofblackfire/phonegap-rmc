@@ -1,22 +1,4 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
     <head>
         <meta charset="utf-8" />
@@ -34,13 +16,16 @@
 		<link href="css/nprogress.css" rel="stylesheet">
 		
         <title>Newport Collision</title>
+        <style>
+        div.status { color:orange; }
+        </style>
     </head>
     <body>
-    <div data-role="page" data-control-title="Home" data-theme="d" id="page1">
+    <div data-role="page" data-control-title="Home" data-theme="d" id="page-home">
       <div data-role="content">
-          <div style=" text-align:center" data-controltype="image">
-              <img style="width: 100%; height: %" src="img/splash.jpg">
-			  <!-- <img style="width: 100%; height: %" src="img/home_logo.jpg"> -->
+          <div style=" text-align:center" data-controltype="image">          
+             <img style="width: 100%; height: %" src="img/logo_rmc.png">
+             <!-- <img style="width: 100%; height: %" src="img/splash.jpg"> -->
           </div>
           <h2 class=".headerrmc">
               What is Newport Collision?
@@ -80,7 +65,7 @@
   <div data-role="page" data-control-title="About" data-theme="d" id="page-about">
       <div data-theme="b" data-role="header">
           <a data-role="button" data-direction="reverse" data-transition="fade"
-          href="#page1" data-icon="back ios-pack-color-back" data-iconpos="left" data-iconsize="26"
+          href="#page-home" data-icon="back ios-pack-color-back" data-iconpos="left" data-iconsize="26"
           class="ui-btn-left">
               &nbsp;
           </a>
@@ -93,14 +78,12 @@
             <h2>ORANGE COUNTY'S PREMIER COLLISION REPAIR FACILITY</h2>
 			<p>At Newport Collision, customer satisfaction is our top priority. We strive to serve Orange County by performing the finest auto-repair services possible. We understand that your vehicle is a very personal and important investment. Our staff and technicians are committed to ensuring that you feel confident with us repairing your vehicle. In order to provide you with peace of mind, we offer: written lifetime warranty, courtesy valet pickup and delivery, onsite rental car arrangements, 24 hour towing, even paintless dent removal and detailing to name a few of our many services.</p>
 		
-
 				<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"> 					
                     <li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b ui-first-child">Contact Us</li>
-                    <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="tel:9496453368" class="ui-link-inherit">Phone: (949)-645-3368</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div></li>
-					<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="mailto:info@newportcollision.net" class="ui-link-inherit">Email: info@newportcollision.net</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div></li>					
-					<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-last-child"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="http://www.newportcollision.net" class="ui-link-inherit">Website: http://www.newportcollision.net</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div></li>
+                    <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="tel:9495844397" class="ui-link-inherit">Phone: (949)-584-4397</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div></li>
+					<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="mailto:info@webcreators.com" class="ui-link-inherit">Email: info@webcreators.com</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div></li>					
+					<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-last-child"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="http://www.webcreators.com" class="ui-link-inherit">Website: http://www.webcreators.com</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div></li>
 				</ul>
-
             
         </div>     
       <div data-theme="d" data-role="footer" data-position="fixed">
@@ -114,7 +97,7 @@
   <div data-role="page" data-control-title="Info" data-theme="d" id="page-contact">
       <div data-theme="b" data-role="header">
           <a data-role="button" data-direction="reverse" data-transition="fade"
-          href="#page1" data-icon="back ios-pack-color-back" data-iconpos="left" data-iconsize="26"
+          href="#page-home" data-icon="back ios-pack-color-back" data-iconpos="left" data-iconsize="26"
           class="ui-btn-left">
               &nbsp;
           </a>
@@ -300,6 +283,7 @@
                   </span>
               </p>
           </div>
+          <div class="status"></div>
           <hr style="height:3px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
 		   <fieldset class="ui-grid-a">
                     <div class="ui-block-a"><a href="#" onclick="capturePhoto()" data-role="button" data-icon="plus" data-theme="b" data-rel="dialog" data-mini="true"> Take Photo</a> </div>
@@ -412,6 +396,7 @@
                   </span>
               </p>
           </div>
+          <div class="status"></div>
           <hr style="height:3px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
 		  <form id="form-confirmrequest" name="form-confirmrequest" action="" enctype="multipart/form-data" method="POST"> 
 		    		   <fieldset class="ui-grid-a">
@@ -449,7 +434,7 @@
   <div data-role="page" data-control-title="Vehicle Congratulations" data-theme="d" id="page-completed">
       <div data-theme="b" data-role="header">
           <a data-role="button" data-direction="reverse" data-transition="none"
-          href="#page1" data-icon="back ios-pack-color-back" data-iconpos="left" data-iconsize="26"
+          href="#page-home" data-icon="back ios-pack-color-back" data-iconpos="left" data-iconsize="26"
           class="ui-btn-left">
               &nbsp;
           </a>
@@ -464,7 +449,7 @@
 		   
 		   <p>We will contact you as soon as we have your repair estimate.</p>
 		   
-		 <a data-role="button" data-transition="flip" data-theme="c" href="#page1"
+		 <a data-role="button" data-transition="flip" data-theme="c" href="#page-home"
           data-icon="home ios-pack-color-right-arrow" data-iconpos="right" data-iconsize="26">
              Return to homepage
           </a>
