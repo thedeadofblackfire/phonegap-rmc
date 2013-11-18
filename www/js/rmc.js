@@ -9,6 +9,7 @@ var request_id = '';
 var capturedPhoto = 0;
 var uploadedPhoto = 0;
 var vinPic = 0;
+//var items = {};
 
 //var statusDom;
 
@@ -140,9 +141,7 @@ function validPageInfo(){
  }
 
  function validPageDetails(){
-    
-		
-		
+    				
 			// save db
 			var formData = $("#form-addrequest").serialize();
             //alert(formData);
@@ -396,7 +395,7 @@ function uploadVin(imageURI) {
 	//displayPhoto(imageURI);	 
 	capturedPhoto++;
     
-	//NProgress.start();
+	NProgress.start();
 	
 	// upload
     var options = new FileUploadOptions();
@@ -419,6 +418,34 @@ function uploadVin(imageURI) {
     
     var ft = new FileTransfer();
     var url = encodeURI(API+"/upload.php?id="+request_id+"&nomimage="+imagefilename);
+    ft.onprogress = function(progressEvent) {
+        if (progressEvent.lengthComputable) {
+          var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
+		  //statusDom.innerHTML = perc + "% uploaded...";
+          // console.log('uploading '+perc+'%');
+          NProgress.set(perc / 100);
+          //$('.status').html(perc + "% uploaded...");          
+          //loadingStatus.setPercentage(progressEvent.loaded / progressEvent.total);
+        } else {
+          NProgress.inc();
+          //loadingStatus.increment();
+          /*
+          var statusUploaded = $('.status').html();
+          if (statusUploaded == "") {
+              $('.status').html('Uploading');
+          } else {
+              $('.status').html(statusUploaded+'.');
+          }
+          */
+          /*
+          if(statusDom.innerHTML == "") {
+				statusDom.innerHTML = "Uploading";
+		  } else {
+				statusDom.innerHTML += ".";
+		  }
+          */
+        }
+    };
     ft.upload(imageURI, url, win, fail, options);       
     
 }
@@ -457,6 +484,8 @@ function uploadPhoto(imageURI) {
     //If you wish to display image on your page in app
 	displayPhoto(imageURI);	 
     
+    NProgress.start();
+    
 	// upload
     var options = new FileUploadOptions();
     options.fileKey = "file";
@@ -482,16 +511,21 @@ function uploadPhoto(imageURI) {
         if (progressEvent.lengthComputable) {
           var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
 		  //statusDom.innerHTML = perc + "% uploaded...";
-          $('.status').html(perc + "% uploaded...");
+          //alert('uploading '+perc+'%');
+          NProgress.set(perc / 100);
+          //$('.status').html(perc + "% uploaded...");          
           //loadingStatus.setPercentage(progressEvent.loaded / progressEvent.total);
         } else {
+          NProgress.inc();
           //loadingStatus.increment();
+          /*
           var statusUploaded = $('.status').html();
           if (statusUploaded == "") {
               $('.status').html('Uploading');
           } else {
               $('.status').html(statusUploaded+'.');
           }
+          */
           /*
           if(statusDom.innerHTML == "") {
 				statusDom.innerHTML = "Uploading";
@@ -599,13 +633,15 @@ damagedpart4.style.visibility = 'visible';
 
 //Success callback
 function win(r) {    
-    playBeep();
+    //playBeep();
     //vibrate();
-    console.log("Image uploaded successfully!!"); 
+    //console.log("Image uploaded successfully!!"); 
+    //alert("Image uploaded successfully!!"); 
 	uploadedPhoto++;
     //alert(uploadedPhoto);
     
-    $('.status').html('');
+    //$('.status').html('');
+    NProgress.done();
 	
 	//document.getElementById('damagedbtn').enabled = true;
 	//NProgress.done(true);				
